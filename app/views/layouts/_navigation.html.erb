@@ -1,0 +1,15 @@
+<header class="navbar bg-dark">
+
+	<nav>
+
+			<%= link_to 'Mon BLog', root_path, class: 'btn btn-dark' %>
+			<%= link_to 'Tous les posts', posts_path, class: 'btn btn-dark' %>
+			<% if user_signed_in? %>
+				<%= link_to current_user.email, user_path(current_user), class: 'btn btn-dark'%>
+				<%= link_to 'Deconnexion', destroy_user_session_path, method: :delete, class: 'btn btn-danger'%>
+			<% else %>
+				<%= link_to 'Connexion', new_user_session_path, class: 'btn btn-dark' %>
+				<%= link_to 'Inscription', new_user_registration_path, class: 'btn btn-dark' %>
+			<% end %>
+	</nav>
+</header>
